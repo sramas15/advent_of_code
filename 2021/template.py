@@ -1,22 +1,16 @@
 import sys
 
-def preprocess(file_path):
-    processed = []
-    with open(file_path) as f:
-        for line in f:
-            pass
-    return processed
+def parse(fn):
+    with open(fn) as f:
+        return [l for l in f]
 
-def part1(processed):
+def part1(data):
     print("Part 1")
 
-def part2(processed):
+def part2(data):
     print("Part 2")
 
 if __name__ == "__main__":
-    if not len(sys.argv) > 1:
-        print("Please provide a file argument")
-    else:
-        processed = preprocess(sys.argv[1])
-        print(part1(processed))
-        #print(part2(processed))
+    data = parse(sys.argv[1])
+    print(part1(data))
+    print(part2(data))

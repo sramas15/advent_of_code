@@ -1,10 +1,8 @@
 import sys
 
 def preprocess(file_path):
-    processed = []
     with open(file_path) as f:
-        processed = [int(l.strip()) for l in f]      
-    return processed
+        return [int(l.strip()) for l in f]
 
 def part1(processed):
     num_increases = 0
