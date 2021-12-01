@@ -5,10 +5,10 @@ def parse(fn):
         return [l for l in f]
 
 def part1(data):
-    print("Part 1")
+    return None
 
 def part2(data):
-    print("Part 2")
+    return None
 
 if __name__ == "__main__":
     data = parse(sys.argv[1])
