@@ -5,15 +5,8 @@ def parse(file_path):
         return [int(l.strip()) for l in f]
 
 def get_num_increases(data, lam):
-    num_increases = 0
     m = len(data)
-    last = lam(0, m, data)
-    for i in range(1, m):
-        cur = lam(i, m, data)
-        if cur > last:
-            num_increases += 1
-        last = cur
-    return num_increases
+    return sum([1 if lam(i, m, data) > lam(i-1, m, data) else 0 for i in range(1, m)])
 
 def part1(data):
     p1 = lambda i, m, data: data[i]
