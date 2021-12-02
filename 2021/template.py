@@ -1,8 +1,11 @@
 import sys
 
+def process_line(l):
+    return l
+
 def parse(fn):
     with open(fn) as f:
-        return [l for l in f]
+        return [process_line(l.strip()) for l in f]
 
 def part1(data):
     return None
