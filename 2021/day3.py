@@ -17,8 +17,8 @@ def get_num_from_bin(bits):
 def part1(data):
     num_bits = len(data[0])
     half = int(len(data) / 2)
-    gamma_bits = [1 if sum([r[i] for r in data]) >= half else 0 for i in range(num_bits)]
-    epsilon_bits = [1 if sum([r[i] for r in data]) < half else 0 for i in range(num_bits)]
+    gamma_bits = [1 if sum([r[i] for r in data]) > half else 0 for i in range(num_bits)]
+    epsilon_bits = [1 if sum([r[i] for r in data]) <= half else 0 for i in range(num_bits)]
     return get_num_from_bin(gamma_bits) * get_num_from_bin(epsilon_bits)
 
 def get_num_meet_criteria(data, lam):
