@@ -16,6 +16,7 @@ class BingoBoard:
                     self.rows[i] -= 1
                     self.cols[j] -= 1
                     self.unmarked_sum -= number
+        return self.has_won()
 
     def has_won(self):
         vals = self.rows + self.cols
@@ -26,15 +27,7 @@ class BingoBoard:
 
 def read_boards(lines):
     nums = [int(i) for i in lines[0].strip().split(',')]
-    boards = []
-    curBoard = []
-    for row in lines[2:] + ['']:
-        if not row:
-            if len(curBoard) != 0:
-                boards.append(BingoBoard(curBoard))
-                curBoard = []
-        else:
-            curBoard.append(row)
+    boards = [BingoBoard(lines[i:i+5]) for i in range(2, len(lines), 6)]
     return nums, boards
 
 def parse(fn):
@@ -44,9 +37,8 @@ def parse(fn):
 def part1(data):
     (nums, boards) = read_boards(data)
     for n in nums:
-        for i, b in enumerate(boards):
-            b.call_number(n)
-            if b.has_won():
+        for b in boards:
+            if b.call_number(n):
                 return b.get_score()
 
 def part2(data):
