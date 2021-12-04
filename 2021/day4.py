@@ -19,8 +19,7 @@ class BingoBoard:
         return self.has_won()
 
     def has_won(self):
-        vals = self.rows + self.cols
-        return any([not s for s in vals])
+        return any([not s for s in self.rows + self.cols])
 
     def get_score(self):
         return self.unmarked_sum * self.last_num_called
