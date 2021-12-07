@@ -13,10 +13,10 @@ def num_produce(num, days_remaining, cache):
         cache[key] = 1 + sum([num_produce(8, i, cache) for i in range(days_remaining - num - 1, -1, -7)])
     return cache[key]
 
-def part1(data, cache):
+def part1(data, cache={}):
     return sum([num_produce(d, 80, cache) for d in data])
 
-def part2(data, cache):
+def part2(data, cache={}):
     return sum([num_produce(d, 256, cache) for d in data])
 
 if __name__ == "__main__":
